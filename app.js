@@ -32,7 +32,7 @@ const getLyrics = (artist, title) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayLyrics(data.lyrics))
-        .error(displayError('Server is down..!! faild to lyrics load, Please try again later...!!'))
+        .catch(displayError('Server is down..!! faild to lyrics load, Please try again later...!!'))
 }
 const displayLyrics = lyrics => {
     const lyricsDiv = document.getElementById("song-lyrics");
