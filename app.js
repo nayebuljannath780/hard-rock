@@ -7,6 +7,15 @@ const searchSong = () => {
         .then(data => displaySongs(data.data))
         .catch(error => displayError('Server is down!! Please try again later'));
 }
+// Enter key code
+document.getElementById('search-feild')
+    .addEventListener("keypress", function (event) {
+
+        if (event.key == 'Enter') {
+            document.getElementById('search-button').click();
+        }
+    });
+
 const displaySongs = songs => {
     const songContainer = document.getElementById("song-container");
     songContainer.innerHTML = '';
@@ -46,9 +55,9 @@ const displayError = error => {
     errorTag.innerText = error;
 }
 
-const toggleSpinner = () =>{
+const toggleSpinner = () => {
     const spinner = document.getElementById("Loading-spinner");
-    const songs = document.getElementById("song-container" );
+    const songs = document.getElementById("song-container");
     spinner.classList.toggle('d-none');
     songs.classList.toggle('d-none');
 
